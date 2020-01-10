@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="adventureModelOptions">
+            <h2><span jhiTranslate="adventureGatewayApp.adventureModelOptions.detail.title">Adventure Model Options</span> {{adventureModelOptions.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="adventureGatewayApp.adventureModelOptions.color">Color</span></dt>
+                <dd>
+                    <span>{{adventureModelOptions.color}}</span>
+                </dd>
+                <dt><span jhiTranslate="adventureGatewayApp.adventureModelOptions.adventureRaceOptions">Adventure Race Options</span></dt>
+                <dd>
+                    <div *ngIf="adventureModelOptions.adventureRaceOptionsId">
+                        <a [routerLink]="['/adventure-race-options', adventureModelOptions.adventureRaceOptionsId, 'view']">{{adventureModelOptions.adventureRaceOptionsId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/adventure-model-options', adventureModelOptions.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
